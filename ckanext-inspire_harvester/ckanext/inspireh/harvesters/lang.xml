@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <language>
+    <value name="cze" code="cze" code2="cs">čeština</value>
+    <value name="eng" code="eng" code2="en">angličtina</value>
+    <value name="fre" code="fre" code2="fr">francouzština</value>
+    <value name="ger" code="ger" code2="de">němčina</value>
+    <value name="pol" code="pol" code2="pl">polština</value>
+    <value name="ita" code="ita" code2="it">italština</value>
+    <value name="slv" code="slv" code2="sl">slovinština</value>
+    <value name="slo" code="slo" code2="sk">slovenština</value>
+    <value name="lav" code="lav" code2="lv">lotyšština</value>
+    <value name="swe" code="swe" code2="sv">švédština</value>
+    <value name="por" code="por" code2="pt">portugalština</value>
+    <value name="nor" code="nor" code2="no">norština</value>
+    <value name="dan" code="dan" code2="da">dánština</value>
+    <value name="hun" code="hun" code2="hu">maďarština</value>
+    <value name="spa" code="spa" code2="es">španělština</value>
+    <value name="fin" code="fin" code2="fi">finština</value>
+    <value name="dut" code="dut" code2="nl">holandština</value>
+  </language>
+

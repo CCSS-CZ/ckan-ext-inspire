@@ -1,0 +1,76 @@
+{
+    "labels": {
+        "bounding-box": "Geographic bouding box",
+        "coupled-resource": "Coupled resource",
+        "dataset-language": "Resource language",
+        "dataset-reference-date": "Reference date",
+        "guid": "Metadata ID",
+        "descriptive-keywords": "Keywords",
+        "access_constraints": "Access constraints",
+        "frequency-of-update": "Update frequency",
+        "graphic-preview-file": "Graphic preview",
+        "licence": "Licence",
+        "lineage": "Lineage",
+        "metadata-date": "Metadata date",
+        "metadata-party": "Metadata contact",
+        "resource-id": "Resource identifier",
+        "resource-type": "Resource type",
+        "responsible-party1": "Responsible party",
+        "scales": "Scales",
+        "spatial-data-service-type": "Service type",
+        "spatial-reference-system": "Spatial reference system",
+        "spatial-resolution": "Spatial resolution",
+        "specification": "Specification",
+        "temporal-extent": "Temporal extent",
+        "topic-category": "Topic category",
+
+        "pass": "Pass",
+        "free-keywords": "Free"
+    },
+    "codes": {
+        "resource-type": {
+            "dataset": "Dataset",
+            "service": "Service",
+            "series": "Series"
+        },
+        "topic-category": {
+            "farming": "Farming",
+            "biota": "Biota",
+            "boundaries": "Boundaries",
+            "climatologyMeteorologyAtmosphere": "Climatology, meteorology, atmosphere",    
+            "economy": "Economy",
+            "elevation": "Elevation",
+            "environment": "Environment",
+            "geoscientificInformation": "Geoscientific information",
+            "health": "Health",
+            "imageryBaseMapsEarthCover": "Imagery, Base maps, Earth cover",
+            "intelligenceMilitary": "Intelligence, military",
+            "inlandWaters": "Inland waters",
+            "location": "Location",
+            "oceans": "Oceans",
+            "planningCadastre": "Planning, Cadastre",
+            "society": "Society",
+            "structure": "Structure",
+            "transportation": "Transportation",
+            "utilitiesCommunication": "Utilities, Communication"
+        },
+        "role": {
+            "custodian": "Custodian",
+            "pointOfContact": "Contact point",
+            "user": "User",
+            "publisher": "Publisher",
+            "owner": "Owner",
+            "distributor": "Distributor",
+            "originator": "Originator",
+            "processor": "Processor",
+            "resourceProvider": "Resource provider",
+            "author": "Author"
+        },
+        "pass":{
+            "true": "yes",
+            "false": "no",
+            "": "not evaluated"
+        }
+    }
+}
+

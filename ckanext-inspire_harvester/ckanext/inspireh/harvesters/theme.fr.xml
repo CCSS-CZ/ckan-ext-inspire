@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<register xmlns="http://inspire.ec.europa.eu/theme_register"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://inspire.ec.europa.eu/theme_register http://inspire.ec.europa.eu/draft-schemas/registry/1.0/theme_register.xsd"
+          id="http://inspire.ec.europa.eu/theme">
+   <language>fr</language>
+   <label xml:lang="fr">Registre de thème INSPIRE</label>
+   <contentsummary xml:lang="fr">Le registre de thèmes INSPIRE contient les thèmes INSPIRE tels que définis dans les annexes de la directive INSPIRE (directive 2007/2/CE du Parlement européen et du Conseil du 14 mars 2007 établissant une infrastructure d'information géographique dans la Communauté européenne (INSPIRE)). Les descriptions des thèmes sont basées sur la version 3.0 du document "Definition of Annex Themes and Scope (D 2.3)" rédigé par l'équipe de rédaction des spécifications de données. Ces définitions ont ensuite été mises à jour par les groupes de travail thématiques INSPIRE (TWG).</contentsummary>
+   <registerowner xml:lang="fr">Union Européenne</registerowner>
+   <registermanager xml:lang="fr">Commission Européenne, Centre Commun de Recherche</registermanager>
+   <registercontrolbody xml:lang="fr">Groupe de maintenance et de mise en œuvre INSPIRE (GMMO)</registercontrolbody>
+   <submitter xml:lang="fr">Members of INSPIRE Maintenance and Implementation Group (MIG)</submitter>
+   <contactpoint xml:lang="fr">
+      <label>JRC INSPIRE Registry Team</label>
+      <email>inspire-registry-dev@jrc.ec.europa.eu</email>
+   </contactpoint>
+   <license xml:lang="fr">
+      <label>Europa Legal Notice</label>
+      <uri>http://ec.europa.eu/geninfo/legal_notices_fr.htm</uri>
+   </license>
+   <registry id="http://inspire.ec.europa.eu/registry">
+      <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+   </registry>
+   <containeditems>
+      <theme id="http://inspire.ec.europa.eu/theme/ad">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Adresses</label>
+         <definition xml:lang="fr">Localisation des propriétés fondée sur les identifiants des adresses, habituellement le nom de la rue, le numéro de la maison et le code postal.</definition>
+         <description xml:lang="en">An address is an identification of the fixed location of a property. The full address is a hierarchy consisting of components such as geographic names, with an increasing level of detail, e.g.: town, then street name, then house number or name. It may also include a post code or other postal descriptors. The address may include a path of access but this depends on the function of the address. \n\nAddresses serve several purposes, these include the four uses described in the Dutch Address Registration catalogue: \n(i) location (e.g. for visits or the delivery of mail), \n(ii) identification (e.g. in context of a building registration), \n(iii) jurisdiction (e.g. authority responsible for the property identified by the address), \n(iv) sorting and ordering (VROM 2006). There may be other uses identified in the INSPIRE user requirements survey, for example, to aid emergency response.\n\n A number of different object types can be related to property. The most commonly recognised types that have addresses are land parcels and buildings (including flats or apartments). However, other object types, such as water pumping stations, and agricultural buildings, are also types of property. Although they do not receive post they may need to have an address for other functions. This is true in both rural and urban areas. Some other property types that might have addresses include a sports ground, a foothold or a mooring place. Collectively, objects which can have addresses are referred to as addressable objects.\n\n The location of an address is most often defined so that it characterises the location of the related addressable object. \n\nAlthough all national or local address systems share similar concepts and general properties, differences exist in formal and informal standards, rules, schemas and data models within Europe. Differences also exist in the extent of the address system, for example, it may be simplified in rural areas. (From revised D2.3)</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/au">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Unités administratives</label>
+         <definition xml:lang="fr">Unités d'administration séparées par des limites administratives et délimitant les zones dans lesquelles les États membres détiennent et/ou exercent leurs compétences, aux fins de l'administration locale, régionale et nationale.</definition>
+         <description xml:lang="en">Each national territory is divided into administrative units. The administrative units are separated by administrative boundaries. Administrative units and administrative boundaries form a partition of space. According to user requirements it will be distinguished between land and (coastal) water parts of administrative units. The INSPIRE theme 'Administrative units' refers to the division of areas where Member States have and/or exercise jurisdictional rights, for local, regional and national governance, i.e. units at the cadastral parcel level are excluded as well as territorial waters, which are in fact assigned to the INSPIRE themes 'Cadastral parcels', 'Hydrography' (Annex I) and/or 'Sea regions' (Annex III). It does not include related systems such as census districts, post office regions and other sector-specific regions, but it will contain a reference to national statistical units at local level (LAU) and to the Nomenclature of Territorial Units for Statistics (NUTS) established by Eurostat.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/rs">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Référentiels de coordonnées</label>
+         <definition xml:lang="fr">Systèmes de référencement unique des informations géographiques dans l'espace sous forme d'une série de coordonnées (x, y, z) et/ou la latitude et la longitude et l'altitude, en se fondant sur un point géodésique horizontal et vertical.</definition>
+         <description xml:lang="en">The theme establishes a structure for spatial referencing of features by coordinates. This topic shall link to appropriate standards for information technology and data where possible, and provide a framework for the development of sector-specific applications using geographic data.\n\n ISO 19111 describes the conceptual schema and defines the description for a minimum data to two cases for which 1-, 2- and 3- dimensional coordinates reference system information shall be given. The first case is given by a coordinate reference system to which a set of coordinates is related. The second case consists of a coordinate operation (coordinate transformation, coordinate conversion, concatenated coordinate operation) to change coordinate values from one coordinate reference system to another. \n\nThere are no explicit accuracy numbers given in ISO 19111. We must consider that it has been developed for geographic information in general, but not for precise positioning. Spatial information may be referenced to the earth surface with an improving accuracy on the global scale for the future. Such high accuracy level may be required for some themes of the Directive, e.g., the trans-European railway transport network. Spatial referencing could no longer be considered as constant in time, if we reach the sub-centimetre level. We need additional parameters compared to ISO 19111 in that case, because that document considers changes in time of the coordinate reference only system through the "date of realisation". This model is not suitable to describe continuous movements of the spatial reference. Kinematic models or so-called "loading models" are examples to incorporate such dynamics. A re-iteration of accuracy aspects may be needed, if specifications for Annex I and II are ready.\n\n The spatial referencing is usually referred to selected points of the earth surface. Such point are, e.g., given by geodetic markers, stations performing permanent satellite observations, levelling benchmarks, or tide gauges. As soon as the marker coordinates are given, they provide a direct access to the realisation of the coordinate reference system.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/gg">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Systèmes de maillage géographique</label>
+         <definition xml:lang="fr">Grille multi-résolution harmonisée avec un point d'origine commun et une localisation ainsi qu'une taille des cellules harmonisées.</definition>
+         <description xml:lang="en">Geographical grids are an agreed, defined and harmonised grid net for Pan-Europe with standardised location and size of grid cells. Examples of cell sizes could be 10x10 m, 100x100 m, 1x1 km, 16x16 km. A good candidate for the INSPIRE-focused Pan-European grid has been proposed as a result of the Workshop on "European Reference Grids". \n\nThe grid - proposed as Pan_European standard - is based on the ETRS89 Lambert Azimuthal Equal Area coordinate reference system with the centre of the projection at the point N 52o, E 10o. The grid is defined as hierarchical one in metric coordinates in power of 10. \n\nThe detail description of the proposed grid is available at the Proceedings of the Workshop on the European Reference Grids, EUR Report 21494 EN, 2005. The Proposal for a European Grid System is presented from page 39 to 46 of that document.\n\n Other grids could be also used, however they need a lot of harmonisation work, as well as a number of conversion tools. Some international organisations, like WMO, perform their operations, using their own and purpose-oriented grid construction.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/cp">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Parcelles cadastrales</label>
+         <definition xml:lang="fr">Zones définies par les registres cadastraux ou équivalents.</definition>
+         <description xml:lang="en">The INSPIRE Directive focuses on the geographical part of cadastral data. In the INSPIRE context, cadastral parcels will be mainly used as locators for geo-information in general, including environmental data. \nAs much as possible, in the INSPIRE context, cadastral parcels should be forming a partition of national territory. Cadastral parcel should be considered as a single area of Earth surface, under homogeneous real property rights and unique ownership (adapted from UN ECE 2004 and WG-CPI, 2006).  Remark: By unique ownership is meant that the ownership is held by one or several owners for the whole parcel. By homogeneous property rights is meant that rights of ownership, leases and mortgages affect the whole parcel. This does not apply to specific rights as servitudes which may only affect part of the parcel. \n\nIn the definition given by the INSPIRE directive, "or equivalent" refers to all public agencies and institutions other than the main traditional/nominal cadastre or land registry, that register parts of the Earth's surface such as special domains, urban cadastres, public lands, which spatially complement the registrations by the main cadastre or land registry.\n Cadastral parcels are considered in the INSPIRE scope if they are available as vector data.\nRights and owners are out of the INSPIRE scope.\n Buildings, land use, addresses are considered in other INSPIRE themes.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/gn">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Dénominations géographiques</label>
+         <definition xml:lang="fr">Noms de zones, de régions, de localités, de grandes villes, de banlieues, de villes moyennes ou d'implantations, ou tout autre élément géographique ou topographique d'intérêt public ou historique.</definition>
+         <description xml:lang="en">A geographical name is a proper noun applied to a natural, man-made or cultural feature on Earth. \n\nA feature can have different names in one or several languages and the names may be provided, together with appropriate information on the feature, in different products like maps and gazetteers as well as respective services. \n\nAn endonym is a name for a geographical feature in an official or well-established language occurring in that area where the feature is situated. An exonym is a name used in a specific language for a geographical feature situated outside the area where that language is widely spoken, and differing in form from the respective endonym(s) in the area where the geographical feature is situated. (UNGEGN, 2007).\n\n In some cases names can be applied as attributes of appropriately modeled spatial objects. However, often the definition, classification, geometry and other attributes of these objects do not correspond with the respective named features. Besides, commonly named features such as elevations, islands, natural shoreline features and stretches of water bodies are seldom modeled as objects in spatial data sets. \n\nA geographical name serves as a means to identify a location. Gazetteers and gazetteer services associate the names with corresponding features – or locations – by means of co-ordinates, feature types and/or other necessary information. A multi-lingual gazetteer (service) shall most probably be established as a part of INSPIRE.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/hy">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Hydrographie</label>
+         <definition xml:lang="fr">Éléments hydrographiques, y compris les zones maritimes ainsi que toutes les autres masses d'eau et les éléments qui y sont liés, y compris les bassins et sous-bassins hydrographiques. Conformes, le cas échéant, aux définitions établies par la directive 2000/60/CE du Parlement européen et du Conseil du 23 octobre 2000 établissant un cadre pour une politique communautaire dans le domaine de l'eau [2] et sous forme de réseaux.</definition>
+         <description xml:lang="en">The theme "Hydrography" is a basic reference component and, therefore, of interest for many users and uses.\n\n For mapping purposes (to provide a map background for orientation and to understand place relationships), it includes the representation of all main hydrographic elements – both natural and artificial. To fulfill reporting requirements of EC water-related directives it includes the river and channel network; surface water bodies within river basin districts are categorised as rivers, lakes, transitional waters or coastal waters, or as artificial surface water bodies or heavily modified surface water bodies. Furthermore, a topologically-sound river network is necessary for GIS-based spatial analysis and modeling. \n\nGeographically, the theme "Hydrography" covers all inland water and marine areas covered by river basin districts as defined by WFD.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/ps">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Sites protégés</label>
+         <definition xml:lang="fr">Zone désignée ou gérée dans un cadre législatif international, communautaire ou national en vue d'atteindre des objectifs spécifiques de conservation.</definition>
+         <description xml:lang="en">Area designated or managed within a framework of international, Community and Member States' legislation to achieve specific conservation objectives. \nAccording to IUCN and adopted for the INSPIRE context a protected site is: An area of land and/or sea especially dedicated to the protection and maintenance of biological diversity, and of natural and associated cultural resources, and managed through legal or other effective means. \n\nProtected sites may be located in terrestrial, aquatic and/or marine environments, and may be under either public or private ownership. They may include localities with protection targets defined by different sectors and based on different objectives, especially dedicated to the conservation of nature, the protection and maintenance of biological diversity and of natural and where appropriate associated cultural resources. The sites may receive protection due to more than one type of objectives, and may have a double or multifarious designation status. Protected sites differ from environmentally founded classifications of natural or cultural objects and also from "area covering" designations as included in CDDA, as localisation, boundary and area of protected sites are based on formal, legal or administrative agreements or decisions. \nAlthough all protected sites meet the general purposes contained in this definition, in practise the precise purposes for which protected sites are managed differ greatly. The main purposes of designation are specified in categories of CDDA (4.5.2 National designation type category) and according to the typology developed in the Standard Data Form for Natura2000 under the Habitat Directive, furthermore, categories of IUCN for Protected Sites and other international designation types have to be applied.\n\n A new classification system of protected sites with an overall set of categories under the INSPIRE directive, therefore, has to include Sites of Community Importance (SCI) under the Habitat directive and Special Protection Areas (SPA) under the Birds directive, as well as further designation types on a global level. This definition of protected sites does not exclude man-made objects or other kinds of cultural heritage sites – protected sites may therefore include where formal protection is given to buildings, archaeological sites of all pre-historic and historic times, including medieval sites/constructions or other cultural objects. This may also be applied to protected sites comprising specific geological, hydrogeological or geomorphological values. \n\nProtected sites in many cases have a formal delineation documentation in cadastral databases. However, delineation injunctions for protected sites are manifold and may just as often not follow cadastral boundaries (e.g. for reasons of generalisation in small scale maps for Natura2000). Being spatial objects under the INSPIRE directive, however, protected sites need to have distinct boundaries of their own, rather than being a mere specific category of some other spatial object type.\n\n Examples of legislation and policies regulating protected sites are Habitat directive (1992) (Directive 92/43/EEC), Birds directive (Directive 79/409/EEC), World Heritage, Ramsar Convention, Barcelona Convention, Helsinki Convention, OSPAR Convention, national law and other international sector policies.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/tn">
+         <version>0</version>
+         <annex>I</annex>
+         <label xml:lang="fr">Réseaux de transport</label>
+         <definition xml:lang="fr">Réseaux routier, ferroviaire, aérien et navigable ainsi que les infrastructures associées. Sont également incluses les correspondances entre les différents réseaux, ainsi que le réseau transeuropéen de transport tel que défini dans la décision no 1692/96/CE du Parlement européen et du Conseil du 23 juillet 1996 sur les orientations communautaires pour le développement du réseau transeuropéen de transport [1] et les révisions futures de cette décision.</definition>
+         <description xml:lang="en">The transport component should comprise an integrated transport network, and related features, that are seamless within each national border. In accordance with article 10.2 of the Directive, national transport networks may also be seamless at European level, i.e. connected at national borders. Transportation data includes topographic features related to transport by road, rail, water, and air. It is important that the features form networks where appropriate, and that links between different networks are established, i.e multi-modal nodes, especially at the local level, in order to satisfy the requirements for intelligent transport systems such as location based services (LBS) and telematics. The transport network should also support the referencing of transport flow to enable our navigation services.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/el">
+         <version>0</version>
+         <annex>II</annex>
+         <label xml:lang="fr">Altitude</label>
+         <definition xml:lang="fr">Modèles numériques pour l'altitude des surfaces terrestres, glaciaires et océaniques. Comprend l'altitude terrestre, la bathymétrie et la ligne de rivage.</definition>
+         <description xml:lang="en">The Elevation of a terrain surface, whether land based or bathymetric in nature described the Earth's morphology. The Elevation data theme includes digital elevation models for land, ice and ocean surfaces both for terrestrial elevation and bathymetry, as well as shorelines.\nThe main purpose of a Digital Elevation Model is to provide an elevation property with reference to a specified origin (vertical reference or datum). This property may be height (when the value is measured opposite to the gravity field of the Earth) or depth (when the value is measured in the direction of the gravity field). In line with existing technologies three spatial representation methods have been provided: grid, vector and triangulated irregular network (TIN). Regarding provision of data, the grid spatial representation type is mandatory for the description of land elevation, whereas the other ones are optional. Finally, either the grid or the vector spatial representation type is mandatory for the provision of data describing the bathymetry, whereas the other ones are optional.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/ge">
+         <version>0</version>
+         <annex>II</annex>
+         <label xml:lang="fr">Géologie</label>
+         <definition xml:lang="fr">Géologie caractérisée en fonction de la composition et de la structure. Englobe le substratum rocheux, les aquifères et la géomorphologie.</definition>
+         <description xml:lang="en">In the INSPIRE context the Geology data theme can be seen as a &amp;quot;reference data theme” as it provides information for several other INSPIRE data themes e.g. Mineral resources; Area Management, Restriction and Regulation Zones; Natural Risk Zones; Soil; Energy resources. In Geology there is a specific relationship with one of the most important natural resources, water, through groundwater bodies contained in aquifers. The theme also covers geomorphology that describes the Earth’s present-day surface, and the location of the geophysical campaigns and measurements that provide valuable information on the physical properties of rocks (like density, porosity, magnetic susceptibility, etc.) regardless of their organization as geologic units.\nThe INSPIRE Geology Theme is split into the following sub-themes:\n• Geology: provides basic knowledge about the physical properties and composition of geologic materials (rocks and sediments), their structure and their age as depicted in geological maps, as well as landforms (geomorphological features). The model also covers boreholes - another important source of information for interpreting the subsurface geology. \n• Hydrogeology: describes the flow, occurrence, and behaviour of water in the subsurface environment. The two basic elements are the rock system (including aquifers) and the groundwater system (including groundwater bodies). Man-made or natural hydrogeological objects/features (such as groundwater wells and natural springs) are also included.\n• Geophysics: focuses on the availability and location of key geophysical features. It includes metadata on high rank gravity, magnetic and seismological stations that are part of international and national observation networks as well as metadata on 2D and 3D seismic measurements that are most often requested by third party users. It also provides collective metadata on gravity, magnetic  and airborne geophysical campaigns that cover large areas and provide basic geological information for scientific research and more detailed applied studies e.g. exploring earth resources (hydrocarbons, mineral deposits, ground water, geothermal energy...).</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/lc">
+         <version>0</version>
+         <annex>II</annex>
+         <label xml:lang="fr">Occupation des terres</label>
+         <definition xml:lang="fr">Couverture physique et biologique de la surface terrestre, y compris les surfaces artificielles, les zones agricoles, les forêts, les zones (semi-)naturelles, les zones humides et les masses d'eau.</definition>
+         <description xml:lang="en">Land cover data is a physical or biological description of the earth surface. In this way it is different from the land use data (Annex III, theme number 4), dedicated to the description of the use of the Earth surface.\n Land cover information has to be homogenous and comparable between different locations in Europe, based on the infrastructures for Land Cover information created by the Member States (if existing), and made available and maintained at the most appropriate level.\nA land cover data set consists of a collection of land cover units. These units may be points, polygons or raster cells (resulting in two core models, one for vector data and one for raster data). The land cover data set is also linked to a code list (e.g. the CORINE Land Cover code list). CORINE Land Cover as well as most regional and national land cover data sets, can be represented using one of the core models.\nLand cover information used in monitoring linked to EU agricultural policy (IACS), in carbon monitoring (LULUCF) and used in land and ecosystem accounting based on CORINE Land Cover (LEAC).</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/oi">
+         <version>0</version>
+         <annex>II</annex>
+         <label xml:lang="fr">Ortho-imagerie</label>
+         <definition xml:lang="fr">Images géoréférencées de la surface terrestre, provenant de satellites ou de capteurs aéroportés.</definition>
+         <description xml:lang="en">The Orthoimagery data theme includes orthorectified image data of the earth's surface, from either satellite or airborne sensors. An orthoimage is a raster image that has been geometrically corrected ("orthorectified") to remove distortion caused by differences in elevation, sensor tilt and, optionally, by sensor optics. Data is orthorectified to achieve an accuracy commensurate with a given topographic map equivalent. The data theme includes orthorectified imagery from the radio, through the visible, to the ultraviolet region of the electromagnetic spectrum.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/af">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Installations agricoles et aquacoles</label>
+         <definition xml:lang="fr">Équipement et installations de production agricoles (y compris les systèmes d'irrigation, les serres et les étables).</definition>
+         <description xml:lang="en">The theme "Agricultural and Aquaculture Facilities" concerns the description of all the physical instruments and constructions with permanent or semi-permanent emplacement (inland or outland) that are related to agricultural and aquaculture activities.\nAgriculture refers to the set of process and activities consisting in cultivating soils, producing crops and rearing animals; it includes harvesting, milking, breeding animals, keeping animals for farming purposes, and, according to Council Regulation 73/2009, maintaining the land in good agricultural and environmental condition. Agricultural facilities include facilities ranging from entire holdings to installations such as irrigation systems, drainage systems,  greenhouses, stables, barns, silos and tanks.\nAquaculture covers activities and techniques related to the production, breeding and treatment of fish, molluscs, seaweed and other kinds of aquatic resources (vegetables or animal). Aquaculture facilities only include permanent or semi-permanent systems  or constructions  for breeding, treatment and raising of organisms. Aquaculture facilities may exist both in marine waters, inland water environments and as terrestrial production systems.\nCatching, hunting or collection of natural resources (vegetables or animal) on their natural environment is not considered as an agricultural activity, unless it is supported by relevant physical instruments and constructions. Similarly, forestry is not considered as an agricultural activity, with the exception of tree nurseries.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/am">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Zones de gestion, de restriction ou de réglementation et unités de déclaration</label>
+         <definition xml:lang="fr">Zones gérées, réglementées ou utilisées pour les rapports aux niveaux international, européen, national, régional et local. Sont inclus les décharges, les zones restreintes aux alentours des sources d'eau potable, les zones vulnérables aux nitrates, les chenaux réglementés en mer ou les eaux intérieures importantes, les zones destinées à la décharge de déchets, les zones soumises à limitation du bruit, les zones faisant l'objet de permis d'exploration et d'extraction minière, les districts hydrographiques, les unités correspondantes utilisées pour les rapports et les zones de gestion du littoral.</definition>
+         <description xml:lang="en">The theme &amp;quot;Area management/restriction/regulation zones and reporting units” is thematically broad and encompasses any zones that are established in accordance with a legislative requirement related to an environmental policy or a policy or activity that may have an impact on the environment at any level of administration (international, European, national and sub-national).\nThe zones are typically established to deliver specific objectives related to any environmental media, for example, air, water, soil and biota (plants and animals). This includes, but is not limited to, objectives established to protect and improve environmental quality (includes reducing pollution levels), protect and conserve environmental and natural resources, protect and control risk from natural and man-made hazards, protect plant, animal and human health or control development.\nThe theme also addresses reporting units, which are defined as &amp;quot;spatial objects that provide the spatial reference for any non-spatial data exchanged under environmental reporting obligations.” The reported non-spatial data must include a property that contains a reference to the spatial object. This is typically an identifier, code or name and is a join key between the spatial and non-spatial objects enabling the data to be combined. This allows the non-spatial data to be visualised as a map or enable spatial analysis.\nDifferent INSPIRE spatial object types can perform the role of &amp;quot;Reporting Unit”. For example, surface waters (rivers, lakes and canals from the Annex I theme Hydrography) are &amp;quot;Reporting Units” for indicators of chemical and ecological status. Thus, Reporting units cannot be modelled as a distinct spatial object type and no specific reporting units data model is defined. Instead, the theme defines obligations on how to make reporting units spatial data available under INSPIRE.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/ac">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Conditions atmosphériques</label>
+         <definition xml:lang="fr">Conditions physiques dans l'atmosphère. Comprend les données géographiques fondées sur des mesures, sur des modèles ou sur une combinaison des deux, ainsi que les lieux de mesure.</definition>
+         <description xml:lang="en">The INSPIRE themes &amp;quot;Atmospheric Conditions” and &amp;quot;Meteorological Features” are covered together in one Data specification. These themes provide basic concepts and data models for environmental protection related activities requiring information on atmospheric conditions like weather, climate and air quality.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/br">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Régions biogéographiques</label>
+         <definition xml:lang="fr">Zones présentant des conditions écologiques relativement homogènes avec des caractéristiques communes.</definition>
+         <description xml:lang="en">Bio-geographical Regions describe areas of relatively homogeneous ecological conditions with common characteristics. The INSPIRE theme Bio-geographical Regions has a strong linkage to other &amp;quot;biodiversity themes”.\nThe Habitats Directive (EEC/92/43) is the most important guiding document regarding to Bio-geographical Regions, which contains a list of &amp;apos;bio-geographical regions’ (Article 1.iii). These bio-geographical regions are the basis of a series of seminars evaluating the Natura 2000 network and for reporting on the conservation status of the habitats and species protected by the Directive. \nHowever, the theme was specified in a more generic way to allow for other concepts of BR (e.g. European map of natural vegetation, environmental stratification) to be shared via INSPIRE.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/bu">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Bâtiments</label>
+         <definition xml:lang="fr">Situation géographique des bâtiments.</definition>
+         <description xml:lang="en">A building is a covered facility, usable for the protection of humans, animals, things or the production of economic goods. A building refers to any structure permanently constructed or erected on its site. Information on location of buildings may be supplied as points or with the actual basic form of the building. Usually buildings are part of cadastre. On the local level buildings are available within the large scale cadastral maps or cadastral data sets and are geometrically represented as surfaces.\nMost buildings can be identified (geocoded) by address (separate theme in INSPIRE).</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/er">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Sources d'énergie</label>
+         <definition xml:lang="fr">Sources d'énergie comprenant les hydrocarbures, l'énergie hydraulique, la bioénergie, l'énergie solaire, l'énergie éolienne, etc., le cas échéant accompagnées d'informations relatives à la profondeur/la hauteur de la source.</definition>
+         <description xml:lang="en">Energy Resources in INSPRE covers historic, current and future energy resources and the entire lifecycle of energy resources, irrespective of its viability in terms of economic, social and technological aspects. It takes into account resources that are depleted due to exploitation in the past and resources currently not viable but may become so in the future.  Information about location and the potential of energy resources have a significant impact on the environment. This impact can have both positive and negative implications, therefore appropriate knowledge about the extent, distribution and volumes of the resources is of great value.\nThere is a main distinction between fossil fuels and renewable energy resources. The concept of energy resources provides focus to the resource aspect and the extent/distribution of the resources. Energy use, e.g. petrol consumption, is not covered by this theme.  Fossil fuel resources include oil accumulation, natural gas accumulations, coal, lignite or peat deposits and Uranium ore deposits.\nRenewable energy resources include Hydropower in which water resources mapped according to energy potential. \nBio-energy resources contains forest resources, cereals or agricultural residues which can be used for energy purposes, Wind energy - estimated by wind measurement together with topographical information. Geothermal energy the natural heat flow is of high interest as a renewable and clean energy source.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/ef">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Installations de suivi environnemental</label>
+         <definition xml:lang="fr">La situation et le fonctionnement des installations de suivi environnemental comprennent l'observation et la mesure des émissions, de l'état du milieu environnemental et d'autres paramètres de l'écosystème (biodiversité, conditions écologiques de la végétation, etc.) par les autorités publiques ou pour leur compte.</definition>
+         <description xml:lang="en">The theme scope includes two main aspects; the first is the environmental monitoring facility as a spatial object, the second is the data obtained through observations and measurements taken at this facility, encoded using the ISO 19156 standard. This information is complemented by further administrative information pertaining to the facility and activities undertaken there such as networks the facility is part of or programmes the facility provides data to. The Environmental Monitoring Facilities theme is cross-cutting to environmental domains; thus, the generic model allows the necessary freedom to bring in thematic specific needs while keeping a shared data structure.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/hb">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Habitats et biotopes</label>
+         <definition xml:lang="fr">Zones géographiques ayant des caractéristiques écologiques particulières — conditions, processus, structures et fonctions (de maintien de la vie) — favorables aux organismes qui y vivent. Sont incluses les zones terrestres et aquatiques qui se distinguent par leurs caractéristiques géographiques, abiotiques ou biotiques, qu'elles soient naturelles ou semi-naturelles.</definition>
+         <description xml:lang="en">Habitats and Biotopes is a biodiversity theme that deals with habitats and biotopes as areas and their distinct boundaries.  Spatial data model provides characterisation of geographical areas being functional for living organisms: biotopes being the spatial environment of a biotic community; habitats being the spatial environment of specific species. To achieve harmonization on local, national and international level, habitat types should refer to the the European Nature Information System habitat classification in the first place, but could also use Habitats Directive 92/43/EEC and Marine Strategy Framework Directive 2008/56/EC as a reference.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/hh">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Santé et sécurité des personnes</label>
+         <definition xml:lang="fr">Répartition géographique des pathologies dominantes (allergies, cancers, maladies respiratoires, etc.) liées directement (pollution de l'air, produits chimiques, appauvrissement de la couche d'ozone, bruit, etc.) ou indirectement (alimentation, organismes génétiquement modifiés, etc.) à la qualité de l'environnement, et ensemble des informations relatif à l'effet de celle-ci sur la santé des hommes (marqueurs biologiques, déclin de la fertilité, épidémies) ou leur bien-être (fatigue, stress, etc.).</definition>
+         <description xml:lang="en">The INSPIRE Human Health and Safety (HH) theme describes the geographical distribution of dominance of pathologies, the effect on health or well-being of humans linked to the quality of the environment.\nThematic components are human health data, biomarkers, health care/health services data, health determinant measurement data and events related to safety.\nDirect or indirect links between pathologies and the quality of the environment, the HH data model is able to accommodate all health data, while linkage of specific health issues and the environment is a matter of a user decision.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/lu">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Usage des sols</label>
+         <definition xml:lang="fr">Territoire caractérisé selon sa dimension fonctionnelle prévue ou son objet socioéconomique actuel et futur (par exemple, résidentiel, industriel, commercial, agricole, forestier, récréatif).</definition>
+         <description xml:lang="en">Land Use theme is defined as the use and functions of a territory and it is description of land in terms of its socio-economic and ecological purpose. Land use theme is itself split in two different types: \n- The Existing Land Use which objectively depicts the use and functions of a territory as it has been and effectively still is in real life \n- The Planned Land Use which corresponds to spatial plans, defined by spatial planning authorities, depicting the possible utilization of the land in the future.\nTwo types of classification systems are supported by Land Use theme, the (obligatory) Hierarchical INSPIRE Land Use Classification System which is a multi-level, classification system that will apply to the existing and planned land use; the (optional) specific classification system in use in a member state.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/mr">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Ressources minérales</label>
+         <definition xml:lang="fr">Ressources minérales comprenant les minerais métalliques, les minéraux industriels, etc., le cas échéant accompagnées d'informations relatives à la profondeur/la hauteur de la ressource.</definition>
+         <description xml:lang="en">The Mineral resources data theme refers to the description of natural concentrations of very diverse mineral resources of potential or proven economic interest. The important attributes such as the nature, genesis, location, extent, mining and distribution of resources reflect the two main identified categories of potential use. These are:\n• Management of resources and their exploitation and exploration activities: provision of information on inventoried mineral resources as well as on the quantitative assessment of undiscovered mineral resources and the modelling of mineral deposits.\n• Environmental impact assessments: mapping and measuring environmental geological parameters for assessing geological material to be used for construction and rehabilitation at the mine site.\n\nThe Mineral resources data model is organised around two major categories of information: description and location of mines and mining activities; the description and location of &amp;quot;earth resources” including their classification, estimates of amount, as well as a description of the main market commodities. The energy resources such as coal, oil and gas are excluded in this theme, as they are found in theme "energy resources".</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/nz">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Zones à risque naturel</label>
+         <definition xml:lang="fr">Zones sensibles caractérisées en fonction des risques naturels (tous les phénomènes atmosphériques, hydrologiques, sismiques, volcaniques, ainsi que les feux de friche qui peuvent, en raison de leur situation, de leur gravité et de leur fréquence, nuire gravement à la société), tels qu'inondations, glissements et affaissements de terrain, avalanches, incendies de forêts, tremblements de terre et éruptions volcaniques.</definition>
+         <description xml:lang="en">Natural risk zones are zones where natural hazards areas intersect with highly populated areas and/or areas of particular environmental/ cultural/ economic value. \nTo define or pre-estimate a Risk following parameter are necessary: potential hazard, probability of its occurrence and vulnerability of the exposed populations and of the environmental, cultural and economic assets in a specific zone. \nNatural hazards can be classified by origin namely: geological, hydro-meteorological or biological. Hazardous events can vary in magnitude or intensity, frequency, duration, area of extent, speed of onset, spatial dispersion and temporal spacing. Specific examples for different types of hazard were identified: Floods (calculation of flood impact, reporting and flood hazard/risk mapping), Risk Management Scenario (an example from a national perspective), Landslides (hazard mapping, vulnerability assessment and risk assessment), Forest fires (danger, vulnerability and risk mapping) and Earthquake insurance. \nFollowing four key spatial object types that are modelled, Hazard area, Observed event, Risk zone and Exposed element.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/of">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Caractéristiques géographiques océanographiques</label>
+         <definition xml:lang="fr">Conditions physiques des océans (courants, salinité, hauteur des vagues, etc.).</definition>
+         <description xml:lang="en">An Ocean Geographical Feature (OF) represents the (physical or chemical) properties of a Sea Region. This type of information is essentially a coverage describing the ocean and could be presented as a set of point data, gridded data, but also as vertical profiles through ocean depths and trajectories along the ocean surface. The Ocean Geographical Features theme employs the ISO 19156 Observations and Measurements standard for consistent encoding of measured, modelled or simulated data.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/pd">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Répartition de la population — démographie</label>
+         <definition xml:lang="fr">Répartition géographique des personnes, avec les caractéristiques de population et les niveaux d'activité, regroupées par grille, région, unité administrative ou autre unité analytique.</definition>
+         <description xml:lang="en">Population Distribution deals with datasets of statistical information describing how some phenomenon regarding human population is spread within some part of the 2D space. The theme has no direct spatial features, only contains attributes allowing to describe population phenomenon related to statistical units. Population data is linked to spatial object (statistical units) through their common identifier, e.g. NUTS codes.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/pf">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Lieux de production et sites industriels</label>
+         <definition xml:lang="fr">Sites de production industrielle, y compris les installations couvertes par la directive 96/61/CE du Conseil du 24 septembre 1996 relative à la prévention et à la réduction intégrées de la pollution [1] et les installations de captage d'eau, d'extraction minière et de stockage.</definition>
+         <description xml:lang="en">The theme "Production and Industrial Facilities" comprises information about industrial facilities and activities of production (focusing on extraction, transformation or storage of resources, including energy production) and the main related environmental issues.\nThe description of production and industrial facilities, e.g. types or activities, in INSPIRE is based on the Integrated pollution prevention and control Directive (2008/1/EC), as recently amended by Industrial Emissions Directive (2010/75/EU), the European pollution and transfer register regulation (166/2006/EC), the SEVESO Directive, its amendments (96/82/EC-A), the NACE regulation (1893/2006/EC) and other relevant legislation and industrial standards.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/sr">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Régions maritimes</label>
+         <definition xml:lang="fr">Conditions physiques des mers et des masses d'eau salée divisées en régions et en sous-régions à caractéristiques communes.</definition>
+         <description xml:lang="en">A Sea Region (SR) is a 2D geometry of an area or line with common (physical or chemical) characteristics that is covered by an ocean, sea or similar salt water body. The model allows the concept of named seas, as well subdivisions and aggregation of seas according to physical or chemical properties. The Sea Regions theme provides mechanisms to describe both the sea bed and sea surface as well as inter-tidal areas and the shoreline.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/so">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Sols</label>
+         <definition xml:lang="fr">Sols et sous-sol caractérisés selon leur profondeur, texture, structure et teneur en particules et en matières organiques, pierrosité, érosion, le cas échéant pente moyenne et capacité anticipée de stockage de l'eau.</definition>
+         <description xml:lang="en">Soil represents the upper part of the earth’s crust, formed by mineral particles, organic matter, water, air and living organisms. It is the interface between rock, air and water which hosts most of the biosphere.  \nINSPIRE Soil data theme comprises information on:\n• Soil inventories that provide one-off assessments of soil conditions and/or soil properties at certain locations and at a specific point in time, and allow soil monitoring, providing a series of assessments showing how soil conditions and/or properties change over time.\n• Soil mapping that provides a spatial representation of the properties linked to the soils, including soil types; typically, soil maps are derived with the help of data available in soil inventories. Also other soil related information derived from soil properties, possibly in combination with non-soil data are within the scope.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/sd">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Répartition des espèces</label>
+         <definition xml:lang="fr">Répartition géographique de l'occurrence des espèces animales et végétales regroupées par grille, région, unité administrative ou autre unité analytique.</definition>
+         <description xml:lang="en">Species Distribution is a biodiversity theme focused on geographical distribution of occurrence of biological organisms aggregated by grid, region, or any administrative or analytical unit.  Distributions may be represented in a wide range of formats, such as points, grid cells at different scales or polygons of specifically defined areas. To achieve harmonization EU-Nomen is the preferred reference list for species (taxon) names to be used, the second choice is European Nature Information System and finally Natura2000.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/su">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Unités statistiques</label>
+         <definition xml:lang="fr">Unités de diffusion ou d'utilisation d'autres informations statistiques.</definition>
+         <description xml:lang="en">Statistical unit informs on the location of statistical data and information. The principle of this theme is to provide stable and identified representations of the statistical units – and statistical data refers to these objects through their identifier. Recommendations are provided on how to give stable identifiers to statistical unit and use these identifiers to attach statistical information on them. This is particularly important if the responsibility for geometry and statistical data are shared between different institutions e.g. mapping agency and statistical offices. Other INSPIRE data specifications such as Population Distribution use this referencing mechanism.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/us">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Services d'utilité publique et services publics</label>
+         <definition xml:lang="fr">Comprend les installations d'utilité publique, tels que les égouts ou les réseaux et installations liés à la gestion des déchets, à l'approvisionnement énergétique, à l'approvisionnement en eau, ainsi que les services administratifs et sociaux publics, tels que les administrations publiques, les sites de la protection civile, les écoles et les hôpitaux.</definition>
+         <description xml:lang="en">The theme "Utility and Government Services" provides basic information (e.g. the location, basic technical characteristics or involved parties) on a wide range of administrative and social services of public interest.\nThe theme is split in the following subthemes:\n• Utility Networks: Node-link-node structured networks for collection, transmission and distribution, including electricity, oil/gas and chemicals, sewer,  thermal, water or (not mandatory) telecommunications networks;\n• Administrative and social governmental services: Local and governmental services and social infrastructures, selected with respect to the INSPIRE scope (focused on public &amp;amp; environmental aspects), represented as "points of interest”;\n• Environmental management facilities: Generic facility descriptions for waste management sites, water treatment plants and regulated or illegal areas for dumping.</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/mf">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="fr">Caractéristiques géographiques météorologiques</label>
+         <definition xml:lang="fr">Conditions météorologiques et leur mesure: précipitations, température, évapotranspiration, vitesse et direction du vent.</definition>
+         <description xml:lang="en">Historical versions of the theme definition are found in the INSPIRE IMS and Scoping papers: \n\n• Weather conditions and their measurements; precipitation, temperature, evapotranspiration, wind. (INSPIRE IMS, 2003) \n• Weather conditions and their measurements; precipitation, temperature, evapotranspiration, wind speed and direction (INSPIRE Scoping, 2004) In order to place into context the range of spatial data types relevant to this theme, we consider the typical 'forecast cycle' of a national meteorological service (NMS). \nThis will: \n(a) collect meteorological observations over (say) a six-hour interval, \n(b) 'assimilate' these into a numerical model to produce an estimate of the current atmospheric state, \n(c) use this analysis as the initial condition for a model forecast run forward in time (typically out to several days). \nFour broad types of data are involved at different phases of the cycle: \n\n1. Observations: around 11000 surface stations globally make up the Global Observing System, reporting such atmospheric parameters as weather, cloud, temperature, humidity, wind, visibility, pressure. A subset of these stations make 'climate observations' which include daily temperature minimum and maximum, sunshine hours, rainfall amount etc. In addition, around 1000 'upper-air' stations make radiosonde (free-rising balloon) observations of pressure, wind, temperature and humidity. Voluntary observing ship and drifting buoys make marine observations including sea surface temperature, and wave height and period. Several hundred thousand reports per day of pressure, winds and temperature are made from aircraft observations. \n2. Synoptic analysis: Gridded wind, temperature, humidity, geopotential height, precipitation, etc. Also, 'sensible weather' elements (fronts, cloud, thunderstorm activity etc) will be analysed. \n3. Forecasts: Numerous forecast products are produced operationally. A conventional weather forecast contains similar elements to the synoptic analysis. \n4. Climatological data: Long-term time-series' of data (either observations or analyses) may be analysed statistically to create climatologies (e.g. 20th century decadal averages, seasonal/monthly minimum or maximum, etc.). There is considerable overlap and ambiguity between the themes 'Atmospheric conditions' and 'Meteorological geographical features' – e.g. weather conditions ('Meteorological geographical features') including precipitation, temperature, wind etc. are precisely components of the atmospheric state ('Atmospheric conditions'). \nNumerous suggestions have been made by stakeholders to resolve this ambiguity. They include: \n• merging the themes (it is impossible to amend the Directive, but it would be sensible to consider the themes jointly during data specification development) \n• distinguishing 'field-based data' (Atmospheric conditions) from 'point-based data' (Meteorological geographical features) \n• distinguishing 'time-series &amp;amp; near-real-time data' (Atmospheric conditions) from 'gridded climate data' (Meteorological geographical features) \n• distinguishing 'climate data' (Atmospheric conditions) from 'observations and forecasts' (Meteorological geographical features). \nTo resolve the ambiguity between themes, we consider the multi-level approach to data needs assessment applied in the INSPIRE 'Environmental Thematic User Needs Position Paper' (2002). Data at local or regional level are often needed for management and policy implementation, while lower resolution ('smaller scale') data are often required for reporting and policy development/evaluation. The latter includes summaries and integrated data products. \nThe scope of 'Meteorological geographical features' thematic data should be limited to local-level high-resolution (weather-related) data, typically observations. \n• This includes synoptic observations from stations making up the WMO RA VI (European) Regional Basic Synoptic Network. The WMO operates a dedicated network (the Global Telecommunications System) to distribute observations and data products. Data exchange is governed by WMO Resolution 40, which provides for free and unrestricted exchange of observational data 'essential' for forecast activities. 'Additional' nominated data and products may be provided with charge, while all data must be supplied free of charge (excluding costs of reproduction and delivery) for research and education. The ECOMET Catalogue (http://www.meteo.oma.be/ECOMET/Categories of data and products.htm) provides a 'one-stop shop' index of both 'essential' and chargeable data and product offerings from European NMSs. A similar catalogue is available for the European Centre for Medium-range Weather Forecasting (ECMWF) (http://www.ecmwf.int/products/catalogue/).</description>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/valid">
+            <label xml:lang="fr">Validé</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+      <theme id="http://inspire.ec.europa.eu/theme/ac-mf">
+         <version>0</version>
+         <annex>III</annex>
+         <label xml:lang="en">Atmospheric Conditions and meteorological geographical features</label>
+         <definition xml:lang="en">Physical conditions in the atmosphere. Includes spatial data based on measurements, on models or on a combination thereof and includes measurement locations. Weather conditions and their measurements; precipitation, temperature, evapotranspiration, wind speed and direction.</definition>
+         <itemclass uriname="Theme">
+            <label xml:lang="fr">Thème</label>
+         </itemclass>
+         <status id="http://inspire.ec.europa.eu/registry/status/invalid">
+            <label xml:lang="fr">Non valable</label>
+         </status>
+         <register id="http://inspire.ec.europa.eu/theme">
+            <label xml:lang="fr">Registre de thème INSPIRE</label>
+            <registry id="http://inspire.ec.europa.eu/registry">
+               <label xml:lang="fr">Système de publication de registres pour INSPIRE</label>
+            </registry>
+         </register>
+      </theme>
+   </containeditems>
+</register>

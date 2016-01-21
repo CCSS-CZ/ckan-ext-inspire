@@ -1,0 +1,278 @@
+{% ckan_extends %}
+	{% block extras scoped %}
+
+	{% set vyhybka = h.inspire_theme_list2dict(pkg_dict.extras) %}
+      {% if vyhybka.get('inspire_harvester') %}
+        <style>
+            .rlabel {width:80px; display: inline-block;}
+        </style>
+        {% set lookup =  h.inspire_theme_getdict( h.lang() ) %}       
+        {% set ex = h.inspire_theme_list2dict(pkg_dict.extras) %}
+
+        {# 1.3 Resource type #}
+        <tr rel="dc:relation" resource="">
+          <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('resource-type', '') }} </th>              
+          <td class="dataset-details" property="rdf:value">
+                {{ lookup.codes.get('resource-type').get(ex.get('resource-type',''), '') }}
+          </td>
+        </tr>
+
+        {# 1.5 Resource identifier #}
+        <tr rel="dc:relation" resource="">
+          <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('resource-id', '') }} </th>              
+          <td class="dataset-details" property="rdf:value">
+              {% for row in h.inspire_theme_toobj( ex.get('resource-id', '')) %}
+                    {{ row.get('code', '') }}
+              {% endfor %}
+          </td>
+        </tr>
+
+        {# 1.7 Resource language #}
+        <tr rel="dc:relation" resource="">
+            <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('dataset-language', '') }} </th>              
+            <td class="dataset-details" property="rdf:value">
+                {% for row in h.inspire_theme_toobj( ex.get('dataset-language', '')) %}
+                    {{ row }}
+                {% endfor %}
+            </td>
+        </tr>
+
+        {# 2.1 Topic category #}
+        {% if ex.get('topic-category') %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('topic-category', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('topic-category', '')) %}
+                        {{ lookup.codes.get('topic-category').get(row, '') }}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+        
+        {# 3 keywords #}
+        {% if ex.get('descriptive-keywords', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('descriptive-keywords', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('descriptive-keywords', '')) %}
+                        {% if row.get('thesaurus').get('title') %}
+                            {{ row.get('thesaurus').get('title') }}
+                        {% else %}
+                            {{ lookup.labels.get('free-keywords', '') }}
+                        {% endif %}
+                        <ul>
+                        {% for kw in row.get('keywords') %}
+                            {% if kw.get('uri') %}
+                                <li><a href="{{ kw.get('uri') }}" target="_blank">{{ kw.get('label') }}</a></li>
+                            {% else %}
+                                <li>{{ kw.get('label') }}</li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                  {% endfor %}
+              </td>
+            </tr>
+        {% endif %}
+
+        {# 4.1 Geographic bounding box #}
+        <tr rel="dc:relation" resource="">
+            <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('bounding-box', '') }} </th>              
+            <td class="dataset-details" property="rdf:value">
+                {{ ex.get('bbox-west-long') }}
+                {{ ex.get('bbox-south-lat') }}
+                {{ ex.get('bbox-east-long') }}
+                {{ ex.get('bbox-north-lat') }}
+            </td>
+        </tr>
+        
+        {# 5a Reference date #}
+        <tr rel="dc:relation" resource="">
+            <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('dataset-reference-date', '') }} </th>              
+            <td class="dataset-details" property="rdf:value">
+                {% for row in h.inspire_theme_toobj( ex.get('dataset-reference-date', '')) %}
+                    {{ row.get('type') }}: {{ row.get('value') }}{% if not(loop.last) %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        
+        {# 5b temporal extent #}
+        {% if ex.get('temporal-extent', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('temporal-extent', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('temporal-extent', '')) %}
+                        {{ row }}{% if not(loop.last) %}, {% endif %}                       
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+        
+        {# 6.1 lineage #}
+        {% if ex.get('lineage', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('lineage', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {{ ex.get('lineage') }}
+                </td>
+            </tr>
+        {% endif %}
+
+        {# 6.2 spatial resolution #}
+        {% if ex.get('scales', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('spatial-resolution', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('scales', '')) %}
+                        1: {{ row }}{% if not(loop.last) %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+
+        {# 7 specification  #}
+        {% if ex.get('scales', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('specification', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('specification', '')) %}
+                        {% if row.get('title', None) %}
+                            {{ row.get('title') }}
+                            <div>{{ lookup.labels.get('pass', '') }}: <b>{{ lookup.codes.get('pass').get(row.get('pass').strip(), '')  }}</b></div>
+                        {% endif %}    
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %} 
+
+        {# 8.1 Conditions applying to access and use #}
+        {% if ex.get('licence', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('licence', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('licence', '')) %}
+                        {{ row }}
+                        {% if not(loop.last) %} <br/> {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+
+        {# 8.2 Conditions applying to access and use #}
+        {% if ex.get('access_constraints', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('access_constraints', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('access_constraints', '')) %}
+                        {{ row }}
+                        {% if not(loop.last) %} <br/> {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+
+        {# 9.1 Responsible party #}
+        {% if ex.get('responsible-party1', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('responsible-party1', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('responsible-party1', '')) %}
+                        <b>{% if row.get('url') %}
+                            <a href="{{ row.get('url') }}">{{ row.get('organisationName') }}</a>
+                        {% else %}
+                           {{ row.get('organisationName') }}
+                        {% endif %}</b><br/>    
+                        {% if row.get('individualName') %} {{ row.get('individualName') }}<br/>{% endif %}
+                        {% if row.get('deliveryPoint') %} {{ row.get('deliveryPoint') }}<br/>{% endif %}
+                        {% if row.get('postalCode') %} {{ row.get('postalCode') }}{% endif %}
+                        {% if row.get('city') %} {{ row.get('city') }}<br/>{% endif %}
+                        {% if row.get('country') %} {{ row.get('country') }}<br/>{% endif %}
+                        
+                        {% if row.get('email') %} {{ row.get('email') }}<br/>{% endif %}
+                        role: {{ lookup.codes.get('role').get(row.get('role'), '')  }}<br/>
+                        {% if not(loop.last) %} <br/>{% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+
+        {# 10.1 Responsible party #}
+        {% if ex.get('metadata-party', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('metadata-party', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    {% for row in h.inspire_theme_toobj( ex.get('metadata-party', '')) %}
+                        <b>{% if row.get('url') %}
+                            <a href="{{ row.get('url') }}">{{ row.get('organisationName') }}</a>
+                        {% else %}
+                           {{ row.get('organisationName') }}
+                        {% endif %}</b><br/>    
+                        {% if row.get('individualName') %} {{ row.get('individualName') }}<br/>{% endif %}
+                        {% if row.get('deliveryPoint') %} {{ row.get('deliveryPoint') }}<br/>{% endif %}
+                        {% if row.get('postalCode') %} {{ row.get('postalCode') }}{% endif %}
+                        {% if row.get('city') %} {{ row.get('city') }}<br/>{% endif %}
+                        {% if row.get('country') %} {{ row.get('country') }}<br/>{% endif %}
+                        
+                        {% if row.get('email') %} {{ row.get('email') }}<br/>{% endif %}
+                        role: {{ lookup.codes.get('role').get(row.get('role'), '')  }}<br/>
+                        {% if not(loop.last) %} <br/>{% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+
+        {# Graphic preview #}
+        {% if ex.get('graphic-preview-file', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('graphic-preview-file', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                    <img src="{{ ex.get('graphic-preview-file') }}"/>
+                </td>
+            </tr>
+        {% endif %}
+
+        {# Spatial reference system #}
+        {% if ex.get('spatial-reference-system', None) %}
+            <tr rel="dc:relation" resource="">
+                <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('spatial-reference-system', '') }} </th>              
+                <td class="dataset-details" property="rdf:value">
+                   {# {% for row in h.inspire_theme_toobj( ex.get('spatial-reference-system', '')) %}
+                        {{ row }}
+                    {% endfor %} #}
+                </td>
+            </tr>
+        {% endif %}
+
+        {# CZ1 metadata identifier #}
+        <tr rel="dc:relation" resource="">
+            <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get('guid', '') }} </th>              
+            <td class="dataset-details" property="rdf:value">
+                {{ ex.get('guid') }}
+            </td>
+        </tr>
+        
+        {#% for extra in pkg_dict.extras %}
+          {% set key = extra.key %}
+          {% set value = extra.value %}
+          {%- if lookup.labels.get(key, '') != '' and value != '' -%}
+            <tr rel="dc:relation" resource="_:extra{{ i }}">
+              <th scope="row" class="dataset-label" property="rdfs:label">{{ lookup.labels.get(key, '') }} </th>              
+              <td class="dataset-details" property="rdf:value">
+                  {{ h.inspire_theme_humanreadable(_(key), value, lookup)|safe }}
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %#}
+
+
+
+        {% else %}
+        {% for extra in h.sorted_extras(pkg_dict.extras) %}
+          {% set key, value = extra %}
+          <tr rel="dc:relation" resource="_:extra{{ i }}">
+            <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
+            <td class="dataset-details" property="rdf:value">{{ value }}</td>
+          </tr>
+        {% endfor %}
+        {% endif %}
+      {% endblock %}
+    

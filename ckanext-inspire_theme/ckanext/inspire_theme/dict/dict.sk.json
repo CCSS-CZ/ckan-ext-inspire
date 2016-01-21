@@ -1,0 +1,75 @@
+{
+    "labels": {
+        "bounding-box": "Ohraničující obdélník",
+        "coupled-resource": "Spřažený zdroj",
+        "dataset-language": "Jazyk zdroje",
+        "dataset-reference-date": "Referenční datum",
+        "guid": "ID metadat (orig)",
+        "descriptive-keywords": "Klíčové slova",
+        "access_constraints": "Omezení přístupu",
+        "frequency-of-update": "Informace o údržbe",
+        "graphic-preview-file": "Náhled",
+        "licence": "Licenční ujednání",
+        "lineage": "Rodokmen",
+        "metadata-date": "Datum aktulizace metadat",
+        "metadata-party": "Kontakt - metadata",
+        "resource-id": "Identifikátor zdroje",
+        "resource-type": "Typ zdroje",
+        "responsible-party1": "Zodpovedná organizace",
+        "scales": "Měřítka",
+        "spatial-data-service-type": "Typ služby",
+        "spatial-reference-system": "Prostorový referenční systém",
+        "spatial-resolution": "Prostorové rozlišení",
+        "specification": "Specifikace",
+        "temporal-extent": "Časový rozsah",
+        "topic-category": "Tematická kategorie",
+        
+        "pass": "Vyhovělo",
+        "free-keywords": "Volná"
+    },
+    "codes": {
+        "resource-type": {
+            "dataset": "Datová sada",
+            "service": "Služba",
+            "series": "Série"
+        },
+        "topic-category": {
+            "farming":"Zemědělství",
+            "biota":"Biota",
+            "boundaries":"Hranice",
+            "climatologyMeteorologyAtmosphere":"Klimatologie/meteorologie/atmosféra",    
+            "economy":"Hospodářství",
+            "elevation":"Nadmořská výška",
+            "environment":"Životní prostředí",
+            "geoscientificInformation":"Geovědní informace",
+            "health":"Zdraví",
+            "imageryBaseMapsEarthCover":"Obrazová data/základní mapy/pokryv Země",
+            "intelligenceMilitary":"Zpravodajské/vojenské informace",
+            "inlandWaters":"Vnitrozemské vodní plochy",
+            "location":"Poloha",
+            "oceans":"Oceány",
+            "planningCadastre":"Plánování/katastr",
+            "society":"Společnost",
+            "structure":"Stavby",
+            "transportation":"Doprava",
+            "utilitiesCommunication":"Veřejné služby/komunikace"
+        },
+        "role": {
+            "custodian": "Správce",
+            "pointOfContact": "Kontaktní bod",
+            "user": "Uživatel",
+            "publisher": "Vydavatel",
+            "owner": "Vlastník",
+            "distributor": "Distributor",
+            "originator": "Původce",
+            "processor": "Zpracovatel",
+            "resourceProvider": "Poskytovatel zdroj",
+            "author": "Autor"
+        },
+        "pass":{
+            "true": "ano",
+            "false": "ne",
+            "": "nehodnoceno"
+        }
+    }
+}

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:py="http://genshi.edgewall.org/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:prov   = "http://www.w3.org/ns/prov#"  
+  xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+
+>
+  <dcat:Description rdf:about="${ h.url_for(controller='package',action='read',id=c.pkg_dict['name'], qualified=True)}" py:with="extr=c.pkg_dict.get('extras', None);">    
+    <py:with vars="data=h.inspire_theme_list2dict(extr)">
+    
+    <!-- METADATA ON METADATA -->  
+    <foaf:isPrimaryTopicOf>
+      <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/dcat#CatalogRecord"/>
+        <!-- Metadata language -->      
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/${data.get('metadata-language','').upper()}"/>
+        <!-- Metadata date -->        
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#date">${data.get('metadata-date','').strip()}</dct:modified>
+        <!-- Metadata point of contact -->    
+        <py:for each="party in eval(data.get('metadata-party',''))">
+            <dcat:contactPoint>
+                <vcard:Kind>
+                    <vcard:organization-name>${party.get('organisationName',None).decode('utf-8')}</vcard:organization-name>
+                    <vcard:hasEmail rdf:resource="mailto:${party.email}"/>
+                    <vcard:hasURL py:if="party.get('url',None)" rdf:resource="${party.url}"/>
+                </vcard:Kind>
+            </dcat:contactPoint>
+            <prov:qualifiedAttribution>
+                <prov:Attribution>
+                    <prov:agent>
+                        <vcard:Kind>
+                            <vcard:organization-name py:attrs="{'xml:lang':data.get('mdlang2','')}">${party.get('organisationName',None).decode('utf-8')}</vcard:organization-name>
+                            <vcard:hasEmail rdf:resource="mailto:${party.email}"/>
+                            <vcard:hasURL py:if="party.get('url',None)" rdf:resource="${party.url}"/>
+                        </vcard:Kind>
+                    </prov:agent>
+                    <dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/${party.role}"/>
+                </prov:Attribution>
+            </prov:qualifiedAttribution>
+        </py:for>
+        <dct:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${data.get('guid','').strip()}</dct:identifier>
+      </rdf:Description>
+    </foaf:isPrimaryTopicOf>  
+
+    <!-- Resource type -->
+    <py:if test="data.get('resource-type',None)">
+        <py:choose> 
+            <rdf:type py:when="data.get('resource-type','') == 'dataset' or data.get('resource-type','') == 'series'" rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>  
+            <rdf:type py:otherwise="" rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
+        </py:choose>
+        <dct:type rdf:resource="http://inspire.ec.europa.eu/codelist/ResourceType/${data.get('resource-type',None)}"/>
+    </py:if>
+    <!-- title -->    
+    <dct:title xml:lang="${data.get('mdlang2','')}">${c.pkg_dict['title']}</dct:title>
+    <!-- description -->
+    <dct:description xml:lang="${data.get('mdlang2','')}">${c.pkg_dict['notes']}</dct:description>
+
+
+    <owl:sameAs rdf:resource="urn:uuid:${c.pkg_dict['id']}"/>
+    <py:for each="tag_dict in c.pkg_dict['tags']">
+        <dcat:keyword>${ tag_dict["name"] }</dcat:keyword>
+    </py:for>
+    <foaf:homepage rdf:resource="${ h.url_for(controller='package',action='read',id=c.pkg_dict['name'], qualified=True)}"/>
+    <rdfs:label>${c.pkg_dict['name']}</rdfs:label>
+
+    <dct:identifier>${c.pkg_dict['name']}</dct:identifier>
+    
+    <!-- locator -->
+    <py:for each="rsc_dict in c.pkg_dict['resources']">
+        <dcat:landingPage rdf:resource="${ rsc_dict['url'] }"/>
+    </py:for>    
+
+    <py:for each="rsc_dict in c.pkg_dict['resources']">
+        <dcat:distribution>
+            <dcat:Distribution>
+                <dcat:accessURL rdf:resource="${ rsc_dict['url'] }"/>
+                    <dct:format py:if="rsc_dict.get('format')">
+                        <dct:IMT>
+                            <rdf:value>${rsc_dict.get('format')}</rdf:value>
+                            <rdfs:label>${rsc_dict.get('format')}</rdfs:label>
+                        </dct:IMT>
+                    </dct:format>
+               <dct:title py:if="rsc_dict.get('name')">${rsc_dict.get('name')}</dct:title>
+            </dcat:Distribution>
+        </dcat:distribution>
+    </py:for>
+    
+    <dct:creator  py:if="c.pkg_dict.get('author', None)">
+      <rdf:Description>
+        <foaf:name>${ c.pkg_dict['author'] }</foaf:name>
+        <foaf:mbox  py:if="c.pkg_dict.get('maintainer_email', None)" rdf:resource="mailto:${c.pkg_dict['author_email']}"/>
+      </rdf:Description>
+    </dct:creator>
+    <dct:contributor py:if="c.pkg_dict.get('maintainer', None)">
+      <rdf:Description>
+        <foaf:name>${ c.pkg_dict['maintainer'] }</foaf:name>
+        <foaf:mbox  py:if="c.pkg_dict.get('maintainer_email', None)" rdf:resource="mailto:${c.pkg_dict['maintainer_email']}"/>
+      </rdf:Description>
+    </dct:contributor>
+
+    <dct:rights py:if="c.pkg_dict.get('license_url', None)" rdf:resource="${c.pkg_dict['license_url']}"/>
+
+    <dct:type py:if="data.get('spatial-data-service-type', None)" rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/${data.get('spatial-data-service-type',None)}"/>
+                   
+    <!--! topic category  -->
+    <py:for each="topic in eval(data.get('topic-category',None))">
+        <dct:subject rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/${topic}"/>
+    </py:for>         
+
+    <!--! spatial - TODO - je jen pro BBOX -->
+    <dct:spatial py:with="bbox = eval(data.get('spatial',''))" xmlns:locn="http://w3.org/ns/locn#" xmlns:gml="http://www.opengis.net/gml">
+        <dct:Location>
+            <locn:geometry rdf:datatype="http://www.opengis.net/rdf#GMLLiteral"><![CDATA[
+                <gml:Envelope srsName="http://www.opengis.net/def/crs/OGC/1.3/CRS84">
+                    <gml:lowerCorner>${bbox.coordinates[0][0][0]} ${bbox.coordinates[0][0][1]}</gml:lowerCorner>
+                    <gml:upperCorner>${bbox.coordinates[0][2][0]} ${bbox.coordinates[0][3][1]}</gml:upperCorner>
+                </gml:Envelope>]]>
+            </locn:geometry>
+        </dct:Location>
+    </dct:spatial>    
+    
+    <!--! resource language -->
+    <py:for each="lang in eval(data.get('dataset-language',''))">
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/${lang.upper()}"/>
+    </py:for>            
+
+    <!--! contactPoint 
+    <py:if test="e.get('key','') == 'responsible-party'">
+        <py:for each="party in eval(e.get('value',''))">
+            <dcat:contactPoint>
+                <vcard:Kind>
+                    <vcard:organization-name>${unicode(party.get('name',None)).decode('unicode-escape')}</vcard:organization-name>
+                    <vcard:hasEmail py:if="party.get('email',None)">${party.email}</vcard:hasEmail>
+                </vcard:Kind>
+            </dcat:contactPoint>
+        </py:for>            
+    </py:if>  -->   
+
+    <!--! contactPoint 1 -->
+    <py:for each="party in eval(data.get('responsible-party1',''))">
+        <dcat:contactPoint>
+            <vcard:Kind>
+                <vcard:organization-name>${party.get('organisationName',None).decode('utf-8')}</vcard:organization-name>
+                <vcard:hasEmail rdf:resource="mailto:${party.email}"/>
+                <vcard:hasURL py:if="party.get('url',None)" rdf:resource="${party.url}"/>
+            </vcard:Kind>
+        </dcat:contactPoint>
+            <prov:qualifiedAttribution>
+                <prov:Attribution>
+                    <prov:agent>
+                        <vcard:Kind>
+                            <vcard:organization-name xml:lang="${data.get('mdlang2','')}">${party.get('organisationName',None).decode('utf-8')}</vcard:organization-name>
+                            <vcard:hasEmail rdf:resource="mailto:${party.email}"/>
+                            <vcard:hasURL py:if="party.get('url',None)" rdf:resource="${party.url}"/>
+                        </vcard:Kind>
+                    </prov:agent>
+                    <dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/${party.role}"/>
+                </prov:Attribution>
+            </prov:qualifiedAttribution>
+    </py:for>    
+
+
+    <!--! keywords  --> 
+    <py:for each="kwlist in eval(data.get('descriptive-keywords',''))">
+        <py:for each="keyword in kwlist.get('keywords','')">
+            <py:choose>
+                <dcat:theme py:when="keyword.get('uri', '') != ''" rdf:resource="${keyword.get('uri', '')}"/>
+                <dcat:theme py:otherwise="">
+                    <skos:Concept>
+                        <skos:prefLabel xml:lang="${data.get('mdlang2','')}">${keyword.get('label',None).decode('utf-8')}</skos:prefLabel>
+                        <skos:inScheme py:if="kwlist.get('thesaurus','').get('title', '') !=''">
+                            <skos:ConceptScheme>
+                                <rdfs:label xml:lang="${data.get('mdlang2','')}">${kwlist.get('thesaurus',None).get('title','').decode('utf-8')}</rdfs:label>
+                                <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${kwlist.get('thesaurus',None).get('date','').strip()}</dct:issued>
+                            </skos:ConceptScheme>
+                        </skos:inScheme> 
+                    </skos:Concept> 
+            </dcat:theme>
+            </py:choose> 
+        </py:for>                        
+    </py:for>    
+
+    <!--!  
+    <dct:relation>
+      <rdf:Description>
+        <rdfs:label>${e.get('key','')}</rdfs:label>
+        <rdf:value>${e.get('value','')}</rdf:value>
+      </rdf:Description>
+    </dct:relation>  --> 
+        
+    <!-- lineage -->
+    <dct:provenance>
+        <dct:ProvenanceStatement>
+            <rdfs:label xml:lang="${data.get('mdlang2','')}">${ data.get('lineage',None) }</rdfs:label>
+        </dct:ProvenanceStatement>
+    </dct:provenance>
+
+    <dcat:distribution>
+      <dcat:Distribution>    
+        <!--! Conditions for access and use -->
+            <py:for each="row in eval(data.get('access_constraints',''))">
+                <dct:rights>
+                    <dct:RightsStatement>
+                        <dct:label>${unicode(row.decode('unicode-escape'))}</dct:label>
+                    </dct:RightsStatement>
+                </dct:rights>
+            </py:for>
+        <!--! Limitations on public access -->
+            <py:for each="row in eval(data.get('licence',''))">        
+                <dct:accessRights>
+                  <dct:RightsStatement>
+                    <rdfs:label>${unicode(row.decode('unicode-escape'))}</rdfs:label>
+                  </dct:RightsStatement>
+                </dct:accessRights>
+            </py:for>
+      </dcat:Distribution>
+    </dcat:distribution>
+    
+    </py:with>  
+  </dcat:Description>
+</rdf:RDF>
