@@ -18,7 +18,7 @@ This extension enables:
 Depends on:
 - inspire_harvester
 
-> The RDF output is written in old Genshi template system. We are working on new implementation based on ckan_dcat extension.
+> The RDF output is written in old Genshi template system and is working in old versions of CKAN only. We are working on new implementation based on ckan_dcat extension.
 
 ## License
 This material is open and licensed under the GNU Affero General Public License (AGPL) v3.0 whose full text may be found at:
