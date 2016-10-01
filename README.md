@@ -1,5 +1,5 @@
 # INSPIRE CKAN extensions
-This extensions are designed for work with [INSPIRE metadata](http://inspire.ec.europa.eu/index.cfm/pageid/101) in [CKAN](http://ckan.org/).
+These extensions are designed for work with [INSPIRE metadata](http://inspire.ec.europa.eu/index.cfm/pageid/101) in [CKAN](http://ckan.org/).
 
 ## inspire_harvester
 This module extends csw_harvester and spatial_metadata extensions to support harvesting of all INSPIRE required metadata elements from [CSW 2.0.2 ISO AP 1.0](http://www.opengeospatial.org/standards/cat).
