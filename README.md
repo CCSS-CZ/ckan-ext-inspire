@@ -18,7 +18,15 @@ This extension enables:
 Depends on:
 - inspire_harvester
 
-> The RDF output is written in old Genshi template system and is working in old versions of CKAN only. We are working on new implementation based on ckan_dcat extension.
+## RDF output
+The RDF output is based on ckanext-rdf plugin. Still under development.
+
+## Installation
+Copy plugins into ckan/src directory. In plugins folder run `python setup.py develop`.
+In CKAN configuration file add plugins:
+- for inspire_harvester - `inspire_harvester`
+- for inspire_theme - `inspire_theme`
+- for rdf output - `dcat_api` - the endpoint is `dcati`
 
 ## License
 This material is open and licensed under the GNU Affero General Public License (AGPL) v3.0 whose full text may be found at:
