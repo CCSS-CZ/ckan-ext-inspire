@@ -61,7 +61,7 @@ def bind_ns(g):
             g.bind(*x)
             logger.debug(x)
         ##[g.bind(*x) for x in namespaces.items()]
-    except Exception as e: 
+    except Exception as e:
         logger.exception('pass namespaces')
         pass
 
@@ -79,7 +79,5 @@ def Graph(*a, **kw):
     _Graph.bound_query = __query
     graph = _Graph(*a, **kw)
     bind_ns(graph)
-    graph.bind('ex', URIRef('http://www.my-example.intra/ontologies/ci.owl#'))
+    ##graph.bind('ex', URIRef('http://www.my-example.intra/ontologies/ci.owl#'))
     return graph
-
-

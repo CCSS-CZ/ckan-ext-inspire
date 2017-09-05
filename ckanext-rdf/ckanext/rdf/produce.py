@@ -69,7 +69,7 @@ def dict_produce(data):
         _process_relationship(rec, uri, rdata)
 
     ## TODO handle groups and version
-    rec.bind('ex', URIRef('http://www.my-example.intra/ontologies/ci.owl#'))
+    ##rec.bind('ex', URIRef('http://www.my-example.intra/ontologies/ci.owl#'))
     return rec
 
 def _process_resource(rec, uri, rdata):
@@ -135,7 +135,7 @@ def _process_extra(rec, uri, key, value):
         _process_linkset(rec, uri, key, value)
     elif key == "triples":
         rec.add((uri, RDF["type"], VOID["Dataset"]))
-        rec.add((uri, VOID["triples"], Literal(int(value)))) 
+        rec.add((uri, VOID["triples"], Literal(int(value))))
     elif key == "shortname":
         rec.add((uri, RDFS["label"], Literal(value)))
     elif key == "license_link":
@@ -199,7 +199,3 @@ def _process_linkset(rec, uri, key, value):
     rec.add((linkset, VOID["objectTarget"], target))
     count = BNode()
     rec.add((linkset, VOID["triples"], Literal(int(value))))
-
-
-
-
