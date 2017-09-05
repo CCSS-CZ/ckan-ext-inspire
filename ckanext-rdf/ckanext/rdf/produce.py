@@ -4,7 +4,7 @@ from urllib import quote
 from pprint import pformat
 
 from vocab import Graph, URIRef, Literal, BNode
-from vocab import DC, DCAT, FOAF, OWL, RDF, RDFS, UUID, VOID, OPMV, SKOS, REV, SCOVO, XSD, LICENSES, CNT, DCL
+from vocab import DC, DCAT, FOAF, OWL, RDF, RDFS, UUID, VOID, OPMV, SKOS, REV, SCOVO, XSD, LICENSES, CNT, DCL, DCT, EARL, GCO, GMD, GML, LOCN, OS, PROV, SCHEMA, SRV, WDRS, XLINK
 
 from util import parse_date
 

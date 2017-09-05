@@ -11,42 +11,66 @@ rdflib.plugin.register('sparql', rdflib.query.Processor,
 rdflib.plugin.register('sparql', rdflib.query.Result,
                        'rdfextras.sparql.query', 'SPARQLQueryResult')
 
+CNT = Namespace("http://www.w3.org/2011/content#")
 DC = Namespace("http://purl.org/dc/elements/1.1/")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
 DCES = Namespace("http://purl.org/dc/elements/1.1/")
+DCL = Namespace("http://dclite4g.xmlns.com/schema.rdf#")
+DCT = Namespace("http://purl.org/dc/terms/")
+EARL = Namespace("http://www.w3.org/ns/earl#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
+GCO = Namespace("http://www.isotc211.org/2005/gco")
+GMD = Namespace("http://www.isotc211.org/2005/gmd")
+GML = Namespace("http://www.opengis.net/gml")
 LICENSES = Namespace("http://purl.org/okfn/licenses/")
 LOCAL = Namespace("http://opendatasearch.org/schema#")
+LOCN = Namespace("http://w3.org/ns/locn#")
 OPMV = Namespace("http://purl.org/net/opmv/ns#")
+OS = Namespace("http://a9.com/-/spec/opensearch/1.1/")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
+PROV = Namespace("http://www.w3.org/ns/prov#")
 REV = Namespace("http://purl.org/stuff/rev#")
 SCOVO = Namespace("http://purl.org/NET/scovo#")
+SCHEMA = Namespace("http://schema.org/")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-VOID = Namespace("http://rdfs.org/ns/void#")
-UUID = Namespace("urn:uuid:")
+SRV = Namespace("http://www.isotc211.org/2005/srv")
 TIME = Namespace("http://www.w3.org/2006/time#")
+UUID = Namespace("urn:uuid:")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
-CNT = Namespace("http://www.w3.org/2011/content#")
-DCL = Namespace("http://dclite4g.xmlns.com/schema.rdf#")
+VOID = Namespace("http://rdfs.org/ns/void#")
+WDRS = Namespace("http://www.w3.org/2007/05/powder-s#")
+XLINK = Namespace("http://www.w3.org/1999/xlink")
 
 namespaces = {
+	"cnt": CNT,
+	"dcl": DCL,
+    "dc": DC,
+    "dcat": DCAT,
+    "dct": DCT,
+    "earl": EARL,
+    "foaf": FOAF,
+    "gco": GCO,
+    "gmd": GMD,
+    "gml": GML,
+    "licenses": LICENSES,
+    "local": LOCAL,
+    "locn": LOCN,
+    "opmv": OPMV,
+    "os": OS,
+    "owl": OWL,
+    "prov": PROV,
     "rdf": RDF,
     "rdfs": RDFS,
-    "owl": OWL,
-    "dc": DC,
-    "foaf": FOAF,
-    "opmv": OPMV,
-    "skos": SKOS,
-    "time": TIME,
-    "void": VOID,
-    "dcat": DCAT,
-    "vcard": VCARD,
-    "local": LOCAL,
     "rev": REV,
     "scovo": SCOVO,
-    "licenses": LICENSES,
-	"cnt": CNT,
-	"dcl": DCL
+    "schema": SCHEMA,
+    "skos": SKOS,
+    "srv": SRV,
+    "time": TIME,
+    "vcard": VCARD,
+    "void": VOID,
+    "wdrs": WDRS,
+    "xlink": XLINK,
 }
 
 def bind_ns(g):
