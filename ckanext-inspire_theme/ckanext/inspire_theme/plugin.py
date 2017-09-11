@@ -158,6 +158,9 @@ class InspireThemePlugin(plugins.SingletonPlugin):
 
 	# Declare that this plugin will implement ITemplateHelpers.
 	plugins.implements(plugins.ITemplateHelpers)
+	
+	# Declare that this plugin will implement IRoutes.
+	plugins.implements(plugins.IRoutes, inherit=True)
 
 	def update_config(self, config):
 
@@ -168,11 +171,16 @@ class InspireThemePlugin(plugins.SingletonPlugin):
 		toolkit.add_template_directory(config, 'templates')
 
 	def get_helpers(self):
-		'''Register the humanreadable() function above as a template
-		helper function.
+		'''Register the functions above as a template
+		helper functions.
 
 		'''
 		# Template helper function names should begin with the name of the
 		# extension they belong to, to avoid clashing with functions from
 		# other extensions.
 		return {'inspire_theme_humanreadable': humanreadable, 'inspire_theme_bettercategories': bettercategories, 'inspire_theme_list2dict': list2dict, 'inspire_theme_getdict': dict, 'inspire_theme_toobj': toobj}
+
+	def before_map(self, route_map):
+		controller = "ckanext.inspire_theme.controller:InspireThemeController"
+		route_map.connect("/dataset/{id}.rdfi", controller=controller, action="show")
+		return route_map

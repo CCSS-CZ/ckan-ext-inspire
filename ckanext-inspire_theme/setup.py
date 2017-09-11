@@ -1,19 +1,19 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.1'
+version = '0.2'
 
 setup(
     name='ckanext-inspire_theme',
     version=version,
-    description="Inspire metadata theme",
+    description="Inspire metadata theme and export",
     long_description='''
     ''',
     classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords='',
-    author='Marek Splichal',
-    author_email='marek.splichal@gmail.com',
-    url='www.ccss.cz',
+    author='Stepan Kafka, Marek Splichal',
+    author_email='kafka@email.cz, marek.splichal@gmail.com',
+    url='http://www.ccss.cz',
     license='',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     namespace_packages=['ckanext', 'ckanext.inspire_theme'],
