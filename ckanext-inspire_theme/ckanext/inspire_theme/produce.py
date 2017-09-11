@@ -251,9 +251,8 @@ def dict_produce(data):
                         </skos:ConceptScheme>
                     </skos:inScheme> 
                 </skos:Concept>
+                </dcat:theme>
                 '''
-            rec += '''</dcat:theme>
-            '''
 
     rec += '''<!-- lineage -->
     <dct:provenance>
