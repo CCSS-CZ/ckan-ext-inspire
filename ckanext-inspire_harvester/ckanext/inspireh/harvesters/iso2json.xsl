@@ -41,7 +41,7 @@
         <xsl:if test="position() != last()">,</xsl:if>
     </xsl:for-each>]';
     
-    rec["dataset-language"] = '[<xsl:for-each select="gmd:identificationInfo/*/gmd:language">
+    rec["dataset-language"] = '[<xsl:for-each select="gmd:identificationInfo/*/gmd:language"> 
       "<xsl:value-of select="*/@codeListValue"/>"<xsl:if test="position() != last()">,</xsl:if>
       </xsl:for-each>]';
     
@@ -61,13 +61,14 @@
 
     rec["descriptive-keywords"] = '[<xsl:for-each select="gmd:identificationInfo/*/gmd:descriptiveKeywords">
         {"keywords": [<xsl:for-each select="*/gmd:keyword">
-			<xsl:variable name="kw" select="string(gco:CharacterString)"/>
+			<xsl:variable name="kw" select="string(*)"/>
             {"label":  <xsl:call-template name="rmulti">
 				   				<xsl:with-param name="l" select="$mdlang"/>
 				   				<xsl:with-param name="e" select="."/>
 				   			</xsl:call-template>,
             
 			"uri": <xsl:choose>
+                <xsl:when test="*/xlink:href">"<xsl:value-of select="*/xlink:href"/>"</xsl:when>
 				<xsl:when test="starts-with($kw, 'http')">"<xsl:value-of select="$kw"/>"</xsl:when>
 				<xsl:when test="contains(../../*/gmd:thesaurusName/*/gmd:title,'INSPIRE')">"<xsl:value-of select="$themes/r:theme[r:label=$kw]/@id"/>"</xsl:when>
 				<xsl:otherwise>""</xsl:otherwise>
@@ -110,7 +111,7 @@
 <xsl:template name="rmulti">
   	<xsl:param name="l"/>
   	<xsl:param name="e"/>
-  	<xsl:param name="n"/>"<xsl:value-of select="$e/gco:CharacterString"/>"
+  	<xsl:param name="n"/>"<xsl:value-of select="$e/*"/>"
     <!-- we don't use multiliguality now
     
     {"<xsl:value-of select="$langCodes/value[@code=$l]/@code2"/>":"<xsl:value-of select="$e/gco:CharacterString"/>"
