@@ -19,6 +19,7 @@
         "scales": "Měřítka",
         "spatial-data-service-type": "Typ služby",
         "spatial-reference-system": "Prostorový referenční systém",
+        "crs": "Prostorový referenční systém",
         "spatial-resolution": "Prostorové rozlišení",
         "specification": "Specifikace",
         "temporal-extent": "Časový rozsah",

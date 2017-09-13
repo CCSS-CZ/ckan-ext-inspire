@@ -19,6 +19,7 @@
         "scales": "Scales",
         "spatial-data-service-type": "Service type",
         "spatial-reference-system": "Spatial reference system",
+        "crs": "Spatial reference system",
         "spatial-resolution": "Spatial resolution",
         "specification": "Specification",
         "temporal-extent": "Temporal extent",

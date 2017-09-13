@@ -23,7 +23,7 @@ Depends on:
 Copy plugins into ckan/src directory. In plugins folder run `python setup.py develop`.
 In CKAN configuration file add plugins:
 - for inspire_harvester - `inspire_harvester`
-- for inspire_theme - `inspire_theme` - the endpoint is `rdfi`
+- for inspire_theme - `inspire_theme` - the endpoint is `rdfi` - to avoid conflicts with other extensions
 
 ## License
 This material is open and licensed under the GNU Affero General Public License (AGPL) v3.0 whose full text may be found at:

@@ -85,6 +85,10 @@ def humanreadable(key, term, dict):
 				term = ''
 				for i in range(len(termj)):
 					term += '1 : ' + str(termj[i]) + '<br/>'
+			elif key == 'crs':
+				term = ''
+				for i in range(len(termj)):
+					term += str(termj[i]) + '<br/>'
 			elif key == 'descriptive-keywords':
 				term = ''
 				for i in range(len(termj)):
