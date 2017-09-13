@@ -39,43 +39,46 @@ def dict_produce(data):
         <!-- Metadata point of contact -->'''
     for key, party in extra.items():
         if "metadata-party" in key:
-            party = party[1:-1]
+            party = party.strip()
+            party = ' '.join(party.split())
             party = json.loads(party)
-            rec += '''
-            <dcat:contactPoint>
-                <vcard:Kind>
-                    <vcard:organization-name>'''
-            rec += party.get('organisationName').strip()
-            rec += '''</vcard:organization-name>
-                    <vcard:hasEmail rdf:resource="mailto:'''
-            rec += party.get('email', '').strip()
-            rec += '"/>'
-            if party.get('url', None):
-                rec += '<vcard:hasURL rdf:resource="' + party.get('url').strip() + '"/>'
-            rec += '''
-            </vcard:Kind>
-            </dcat:contactPoint>'''
-            rec += '''<prov:qualifiedAttribution>
-                <prov:Attribution>
-                    <prov:agent>
-                        <vcard:Kind>
-                            <vcard:organization-name'''
-            if extra.get('mdlang2', ''):
-                rec += ' xml:lang="' + extra.get('mdlang2') + '"'
-            rec += '>' + party.get('organisationName').strip()
-            rec += '''</vcard:organization-name>
-                            <vcard:hasEmail rdf:resource="mailto:'''
-            rec += party.get('email', '').strip() + '"/>'
-            if party.get('url', None):
+            for part in party:
                 rec += '''
-                    <vcard:hasURL rdf:resource="''' + party.get('url') + '''"/>'''
-            rec += '''</vcard:Kind>
-                    </prov:agent>
-                    <dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/'''
-            rec += party.get('role')
-            rec += '''"/>
-                </prov:Attribution>
-            </prov:qualifiedAttribution>'''
+                <dcat:contactPoint>
+                    <vcard:Kind>
+                        <vcard:organization-name>'''
+                rec += part.get('organisationName').strip()
+                rec += '''</vcard:organization-name>
+                        <vcard:hasEmail rdf:resource="mailto:'''
+                rec += part.get('email', '').strip()
+                rec += '"/>'
+                if part.get('url', None):
+                    rec += '<vcard:hasURL rdf:resource="' + part.get('url').strip() + '"/>'
+                rec += '''
+                </vcard:Kind>
+                </dcat:contactPoint>'''
+                rec += '''<prov:qualifiedAttribution>
+                    <prov:Attribution>
+                        <prov:agent>
+                            <vcard:Kind>
+                                <vcard:organization-name'''
+                if extra.get('mdlang2', ''):
+                    rec += ' xml:lang="' + extra.get('mdlang2') + '"'
+                rec += '>' + part.get('organisationName').strip()
+                rec += '''</vcard:organization-name>
+                                <vcard:hasEmail rdf:resource="mailto:'''
+                rec += part.get('email', '').strip() + '"/>'
+                if part.get('url', None):
+                    rec += '''
+                        <vcard:hasURL rdf:resource="''' + part.get('url') + '''"/>'''
+                rec += '''</vcard:Kind>
+                        </prov:agent>
+                        <dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/'''
+                rec += part.get('role')
+                rec += '''"/>
+                    </prov:Attribution>
+                </prov:qualifiedAttribution>
+                '''
     rec += '<dct:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">'
     rec += extra.get('guid','').strip()
     rec += '''</dct:identifier>
@@ -197,63 +200,66 @@ def dict_produce(data):
     '''
     for key, party in extra.items():
         if "responsible-party1" in key:
-            party = party[1:-1]
+            party = party.strip()
+            party = ' '.join(party.split())
             party = json.loads(party)
-            rec += '''<dcat:contactPoint>
-            <vcard:Kind>
-                <vcard:organization-name>''' + party.get('organisationName',None).strip() + '''</vcard:organization-name>
-                <vcard:hasEmail rdf:resource="mailto:''' + party.get('email').strip() + '''"/>
+            for part in party:
+                rec += '''<dcat:contactPoint>
+                <vcard:Kind>
+                    <vcard:organization-name>''' + part.get('organisationName',None).strip() + '''</vcard:organization-name>
+                    <vcard:hasEmail rdf:resource="mailto:''' + part.get('email').strip() + '''"/>
+                    '''
+                if part.get('url'):
+                    rec += '''<vcard:hasURL rdf:resource="''' + part.get('url').strip() + '''"/>
+                    '''
+                rec += '''</vcard:Kind>
+            </dcat:contactPoint>
+                <prov:qualifiedAttribution>
+                    <prov:Attribution>
+                        <prov:agent>
+                            <vcard:Kind>
+                                <vcard:organization-name xml:lang="''' + extra.get('mdlang2','') + '''">''' + part.get('organisationName',None).strip() + '''</vcard:organization-name>
+                                <vcard:hasEmail rdf:resource="mailto:''' + part.get('email').strip() + '''"/>
+                                '''
+                if part.get('url'):
+                    rec += '''<vcard:hasURL rdf:resource="''' + part.get('url') + '''"/>
+                    '''
+                rec += '''</vcard:Kind>
+                        </prov:agent>
+                        <dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/''' + part.get('role') + '''"/>
+                    </prov:Attribution>
+                </prov:qualifiedAttribution>
                 '''
-            if party.get('url'):
-                rec += '''<vcard:hasURL rdf:resource="''' + party.get('url').strip() + '''"/>
-                '''
-            rec += '''</vcard:Kind>
-        </dcat:contactPoint>
-            <prov:qualifiedAttribution>
-                <prov:Attribution>
-                    <prov:agent>
-                        <vcard:Kind>
-                            <vcard:organization-name xml:lang="''' + extra.get('mdlang2','') + '''">''' + party.get('organisationName',None).strip() + '''</vcard:organization-name>
-                            <vcard:hasEmail rdf:resource="mailto:''' + party.get('email').strip() + '''"/>
-                            '''
-            if party.get('url'):
-                rec += '''<vcard:hasURL rdf:resource="''' + party.get('url') + '''"/>
-                '''
-            rec += '''</vcard:Kind>
-                    </prov:agent>
-                    <dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/''' + party.get('role') + '''"/>
-                </prov:Attribution>
-            </prov:qualifiedAttribution>
-            '''
 
     rec += '''<!--! keywords  -->
         '''
         
     for key, dkey in extra.items():
         if "descriptive-keywords" in key:
-            dkey = dkey[1:-1]
+            dkey = dkey.strip()
+            dkey = ' '.join(dkey.split())
             dkey = json.loads(dkey)
-            for dekey in dkey.get('keywords'):
-                #rec += json.dumps(dekey)
-                if dekey.get('uri'):
-                    rec += '''<dcat:theme rdf:resource="''' + dekey.get('uri') + '''"/>
-                    '''
-                else:
-                    rec += '''<dcat:theme>
-                    <skos:Concept>
-                        <skos:prefLabel xml:lang="''' + extra.get('mdlang2','') + '''">''' + dekey.get('label',None) + '''</skos:prefLabel>
+            for dekey in dkey:
+                for k in dekey.get('keywords'):
+                    if k.get('uri'):
+                        rec += '''<dcat:theme rdf:resource="''' + k.get('uri') + '''"/>
                         '''
-                    if dkey.get('thesaurus').get('title'):
-                        rec += '''<skos:inScheme>
-                        <skos:ConceptScheme>
-                            <rdfs:label xml:lang="''' + extra.get('mdlang2','') +'''">''' + dkey.get('thesaurus',None).get('title','') + '''</rdfs:label>
-                            <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">''' + dkey.get('thesaurus',None).get('date','').strip() + '''</dct:issued>
-                        </skos:ConceptScheme>
-                    </skos:inScheme> 
-                </skos:Concept>
-                </dcat:theme>
-                '''
-
+                    else:
+                        rec += '''<dcat:theme>
+                        <skos:Concept>
+                        <skos:prefLabel xml:lang="''' + extra.get('mdlang2','') + '''">''' + k.get('label',None) + '''</skos:prefLabel>
+                        '''
+                        if dekey.get('thesaurus').get('title'):
+                            rec += '''<skos:inScheme>
+                                            <skos:ConceptScheme>
+                                                <rdfs:label xml:lang="''' + extra.get('mdlang2','') +'''">''' + dekey.get('thesaurus',None).get('title','') + '''</rdfs:label>
+                                                <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">''' + dekey.get('thesaurus',None).get('date','').strip() + '''</dct:issued>
+                                            </skos:ConceptScheme>
+                                        </skos:inScheme>
+                                        ''' 
+                        rec += '''</skos:Concept>
+                        </dcat:theme>
+                        '''
     rec += '''<!-- lineage -->
     <dct:provenance>
         <dct:ProvenanceStatement>
