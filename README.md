@@ -7,8 +7,8 @@ This module extends csw_harvester and spatial_metadata extensions to support har
 Depends on:
 -  https://github.com/ckan/ckanext-harvest
 -  https://github.com/ckan/ckanext-spatial
-  - csw_harvester
-  - spatial_metadata
+    - csw_harvester
+    - spatial_metadata
 
 ## inspire_theme
 This extension enables:
