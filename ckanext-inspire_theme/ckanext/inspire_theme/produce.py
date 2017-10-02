@@ -1,7 +1,20 @@
+# -*- coding: utf-8 -*-
 import logging
 import json
 
 log = logging.getLogger(__name__)
+
+html_escape_table = {
+    "&": "&amp;",
+    '"': "&quot;",
+    "'": "&apos;",
+    ">": "&gt;",
+    "<": "&lt;",
+    }
+
+def html_escape(text):
+    """Produce entities within text."""
+    return "".join(html_escape_table.get(c,c) for c in text)
 
 def rdf_produce(pkg):
     return dict_produce(pkg.as_dict())
@@ -53,7 +66,7 @@ def dict_produce(data):
                 rec += part.get('email', '').strip()
                 rec += '"/>'
                 if part.get('url', None):
-                    rec += '<vcard:hasURL rdf:resource="' + part.get('url').strip() + '"/>'
+                    rec += '<vcard:hasURL rdf:resource="' + html_escape(part.get('url').strip()) + '"/>'
                 rec += '''
                 </vcard:Kind>
                 </dcat:contactPoint>'''
@@ -70,7 +83,7 @@ def dict_produce(data):
                 rec += part.get('email', '').strip() + '"/>'
                 if part.get('url', None):
                     rec += '''
-                        <vcard:hasURL rdf:resource="''' + part.get('url') + '''"/>'''
+                        <vcard:hasURL rdf:resource="''' + html_escape(part.get('url')) + '''"/>'''
                 rec += '''</vcard:Kind>
                         </prov:agent>
                         <dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/'''
@@ -114,12 +127,12 @@ def dict_produce(data):
     rec += '''<!-- locator -->
     '''
     for rsrc in data.get('resources'):
-        rec += '''<dcat:landingPage rdf:resource="''' + rsrc.get('url') + '''"/>
+        rec += '''<dcat:landingPage rdf:resource="''' + html_escape(rsrc.get('url')) + '''"/>
     '''
     for rsrc in data.get('resources'):
         rec += '''<dcat:distribution>
         <dcat:Distribution>
-            <dcat:accessURL rdf:resource="''' + rsrc.get('url') + '''"/>
+            <dcat:accessURL rdf:resource="''' + html_escape(rsrc.get('url')) + '''"/>
             '''
         if rsrc.get('format'):
             rec += '''<dct:format>
@@ -160,7 +173,7 @@ def dict_produce(data):
     '''
 
     if data.get('license_url'):
-        rec += '''<dct:rights rdf:resource="''' + data.get('license_url') + '''"/>
+        rec += '''<dct:rights rdf:resource="''' + html_escape(data.get('license_url')) + '''"/>
         '''
 
     if extra.get('spatial-data-service-type'):
@@ -210,7 +223,7 @@ def dict_produce(data):
                     <vcard:hasEmail rdf:resource="mailto:''' + part.get('email').strip() + '''"/>
                     '''
                 if part.get('url'):
-                    rec += '''<vcard:hasURL rdf:resource="''' + part.get('url').strip() + '''"/>
+                    rec += '''<vcard:hasURL rdf:resource="''' + html_escape(part.get('url').strip()) + '''"/>
                     '''
                 rec += '''</vcard:Kind>
             </dcat:contactPoint>
@@ -222,7 +235,7 @@ def dict_produce(data):
                                 <vcard:hasEmail rdf:resource="mailto:''' + part.get('email').strip() + '''"/>
                                 '''
                 if part.get('url'):
-                    rec += '''<vcard:hasURL rdf:resource="''' + part.get('url') + '''"/>
+                    rec += '''<vcard:hasURL rdf:resource="''' + html_escape(part.get('url')) + '''"/>
                     '''
                 rec += '''</vcard:Kind>
                         </prov:agent>
@@ -242,7 +255,7 @@ def dict_produce(data):
             for dekey in dkey:
                 for k in dekey.get('keywords'):
                     if k.get('uri'):
-                        rec += '''<dcat:theme rdf:resource="''' + k.get('uri') + '''"/>
+                        rec += '''<dcat:theme rdf:resource="''' + html_escape(k.get('uri')) + '''"/>
                         '''
                     else:
                         rec += '''<dcat:theme>
